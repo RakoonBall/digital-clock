@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            margin: 0;display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+            background: url("https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
+            color: white;
+        }
+        h2{
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .clock{
+            display: flex;
+
+        }
+        .clock div{
+            margin: 5px;
+
+        }
+        .clock span{
+            width: 100px;
+            height: 80px;
+            background: slateblue;
+            opacity: .8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,.3);
+            /* position: relative; */
+        }
+        .clock .text{
+            height: 30px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background-color: rgb(47, 47, 203);
+            opacity: .8;
+        }
+        .clock .logo{
+            background: darkblue;
+            color: rgb(209, 236, 207);
+            font-family: cursive;
+        }
+        .clock #ampm{
+            color: rgb(3, 59, 3);
+        }
+        /* .clock #ampm{
+            /* bottom: 0; */
+            /* position: absolute;
+            width: px;
+            height: 110px;
+            font-size: 40px;
+            background: ; */ 
+        
+    </style>
+</head>
+<body>
+    <h2>Digital Clock</h2>
+    <div class="clock">
+        <div>
+            <span id="hours">00</span>
+            <span class="text">Hours</span>
+        </div>
+        <div>
+            <span id="minutes">00</span>
+            <span class="text">Minutes</span>
+        </div>
+        <div>
+            <span id="seconds">00</span>
+            <span class="text">Seconds</span>
+        </div>
+        <div>
+            <span id="ampm"></span>
+            <span class="text logo">Amazon</span>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const hourEl = document.getElementById("hours");
+        const minuteEl= document.getElementById("minutes");
+        const secondEl = document.getElementById("seconds");
+        const ampmEl = document.getElementById('ampm');
+        let ampm = "AM";
+      
+
+        function updateClock(){
+            let h =new Date().getHours();
+            let m =new Date().getMinutes();
+            let s =new Date().getSeconds();
+           
+            if(h>12){
+                h=h-12
+                ampm="PM"
+                ampmEl.innerText=ampm;
+            }
+
+            hourEl.innerText=h;
+            minuteEl.innerText=m;
+            secondEl.innerText=s;
+            setTimeout(updateClock,1000);
+        }
+
+        updateClock();
+    </script>
+</body>
+</html>
