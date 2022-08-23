@@ -14,6 +14,7 @@
             justify-content: center;
             background: url("https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80");
             color: white;
+            background-size: cover;
         }
         h2{
             text-transform: uppercase;
@@ -104,10 +105,12 @@
             let m =new Date().getMinutes();
             let s =new Date().getSeconds();
            
-            if(h>12){
+            if(h>12){//in this following date function h=1 starts from midday. it is very important to note this thing
                 h=h-12
                 ampm="PM"
                 ampmEl.innerText=ampm;
+            }else{
+                ampmEl.innerText='AM'
             }
 
             hourEl.innerText=h;
